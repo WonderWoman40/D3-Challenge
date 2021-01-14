@@ -31,7 +31,7 @@ function makeResponsive() {
 
   // Append SVG element
   var svg = d3
-    .select(".#scatter")
+    .select("#scatter")
     .append("svg")
     .attr("height", svgHeight)
     .attr("width", svgWidth);
@@ -82,9 +82,8 @@ function makeResponsive() {
         .attr("r", "10")
         .attr("fill", "gold")
         .attr("stroke-width", "1")
-        .attr("stroke", "black")
-        attr("opacity", ".5");
-
+        .attr("stroke", "black");
+       
       var circleText = chartGroup.append("g").selectAll("text")
         .data(healthData)
         .enter()
