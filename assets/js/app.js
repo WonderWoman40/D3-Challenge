@@ -94,25 +94,28 @@ function makeResponsive() {
         .attr("text-anchor", "middle")
         .attr("alignment-baseline", "central")
         .attr("font_family", "sans-serif")
-        .attr("font-size", "10px")
-        .attr("fill", "white")
+        .attr("font-size", "8px")
+        .attr("fill", "red")
         .style("font-weight", "bold");
 
+
+        // Add X axis label
         chartGroup.append("text")
         .attr("transform", `translate(${width / 2}, ${height + margin.top - 10})`)
         .attr("text-anchor", "middle")
-        .attr("font-size", "16px")
+        .attr("font-size", "18px")
         .attr("fill", "black")
-        .text("Median Age");
+        .text("Age(Median)");
 
+        // Y axis label
         chartGroup.append("text")
-        .attr("y", 0 - (margin.left / 2))
+        .attr("y", 0 - (margin.left / 2 +10))
         .attr("x", 0 - (height / 2))
         .attr("text-anchor", "middle")
-        .attr("font-size", "16px")
+        .attr("font-size", "18px")
         .attr("fill", "black")
         .attr("transform", "rotate(-90)")
-        .text("Percentage Who Smoke");
+        .text("Smoke(%)");
 
     })    
 
