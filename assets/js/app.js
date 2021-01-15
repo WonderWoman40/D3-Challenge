@@ -73,27 +73,26 @@ function makeResponsive() {
         .call(yAxis);
 
       // append circles
-      var circlesGroup = chartGroup.selectAll("circle")
+      var circlesGroup = chartGroup.selectAll(".stateCircle")
         .data(healthData)
         .enter()
         .append("circle")
         .attr("cx", d => xLinearScale(d.age))
         .attr("cy", d => yLinearScale(d.smokes))
         .attr("r", "10")
-        .attr("fill", "gold")
+        .attr("class", "stateCircle")
         .attr("stroke-width", "1")
         .attr("stroke", "black");
-       
-      var circleText = chartGroup.append("g").selectAll("text")
+
+       // append text in circles
+      var circleText = chartGroup.selectAll(".stateText")
         .data(healthData)
         .enter()
         .append("text")
         .text(d => d.abbr)
         .attr("x", d => xLinearScale(d.age))
         .attr("y", d => yLinearScale(d.smokes))
-        .attr("text-anchor", "middle")
-        .attr("alignment-baseline", "central")
-        .attr("font_family", "sans-serif")
+        .attr("class", "stateText")
         .attr("font-size", "8px")
         .attr("fill", "red")
         .style("font-weight", "bold");
@@ -103,7 +102,7 @@ function makeResponsive() {
         chartGroup.append("text")
         .attr("transform", `translate(${width / 2}, ${height + margin.top - 10})`)
         .attr("text-anchor", "middle")
-        .attr("font-size", "18px")
+        .attr("font-size", "16px")
         .attr("fill", "black")
         .text("Age(Median)");
 
@@ -112,7 +111,7 @@ function makeResponsive() {
         .attr("y", 0 - (margin.left / 2 +10))
         .attr("x", 0 - (height / 2))
         .attr("text-anchor", "middle")
-        .attr("font-size", "18px")
+        .attr("font-size", "16px")
         .attr("fill", "black")
         .attr("transform", "rotate(-90)")
         .text("Smoke(%)");
